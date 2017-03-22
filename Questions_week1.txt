@@ -1,0 +1,143 @@
+比赛规则：
+1)  比赛开始时间：3/20周一早晨9:00；比赛结束时间：3/27周一早晨10:00。
+2)  请在截止时间之前将答案发送给: Shirley.Zhao@alcatel-lucent.com，John.A.Zhang@alcatel-lucent.com。发送答案超过限时者不予考虑。同分情况下，尽早提交答案者排名靠前。允许多次提交答案，以最后一次答案为准。
+3)  每个题目的代码只能有一个源文件。如果可以编译成可执行文件，请将编译之后可运行的可执行文件命名为xxx_q1一并打包提交，并简要说明编译运行环境，包括用到特别的非默认类库/第三方类库请予以说明。
+源文件命名规则：
+${csl}_${questionNumber}.${suffix}
+说明：
+${csl} is your csl.
+${questionNumber} is the number of the question.q1/q2…, etc
+示例:
+zsan_q1.c
+zsan_q2.py （注明python版本）
+如果可编译，编译之后的可执行文件命名规则：(括号备注运行操作系统)
+${csl}_${questionNumber}.${suffix}
+示例:
+zsan_q1 (centos Linux 32bit)
+zsan_q2.exe (windows7 64bit)
+（提交文件要求：c/c++ 源文件+可执行文件；python/java 源文件。试题答案通过自动化用例评分，并比较源代码，基本相似的两份源程序均视为无效答案。）
+4)  C/C++ 程序的编译运行方式：将会用 g++ -O2 进行编译，(version g++ 4.x)
+5)  Java 程序的运行方式：javac  HelloJava.java ; java HelloJava
+6)  程序执行限时：如果题目没有特殊要求，程序运行时间限时1秒 (C/C++/Java) , 15秒(python). 如果程序执行测试例超时，则该测试例不得分。
+7)  程序的所有输入通过标准输入获得。
+8)  运行结果通过标准输出打印。
+9)  不得输出任何题目没有要求的输出信息（比如log, 提示信息 "input:" "Succeed!" 等等）。输出多余信息会影响case自动执行通过率，从而影响成绩。
+10) 每个test case全对算对，没有半对的说法。Case超时算错。
+11) 需要做参数合法性检查。
+
+评分依据：算法正确性、性能、健壮性、代码质量、提交时间。
+说明：编程题目占总分85%；另有10道C/C++的填空、简答和选择题，占15%分数。请在提交答案时，在邮件正文中提交填空、简答和选择题答案。
+
+如有疑问请与各组coordinator联系
+BSC BST – Cherry Yang
+BSC OAM – Ever Zhao
+BSC PF – Kevin Ma
+BSC TEL/PM – Felix Zhang
+BSC TPHW – Crystal Shan
+L4 – Shirley Zhao/John Zhang
+MFS – Belinda Zhao
+ST – Sarah Zhao
+
+Q1: 编程题 （85 points）
+
+假期到了，孩子的同学们来你们家玩，你为他们买了几盒糖果。每个盒子都包含不同类型的糖果的集合。为了防止孩子们因为分到不同数量和类型的糖果而吵闹，你决定打开所有的盒子，取出所有的糖果，并均匀地按孩子个数分成多份。当然，均匀的分配一堆糖果有可能做不到，总会出现零头的，你会把每种类型的糖果均匀的分给孩子们，多余的那些糖果藏起来。
+
+输入：
+第一行是一个数字，代表孩子总数。合法值[2,10]
+第二行是一个以逗号”,”分隔的字符串，每个字符串被双引号括起来，代表一个糖果盒，字符串中的每个字符代表一个糖果。相等的字符是相同类型的糖果：例如，所有”B”是相同的糖果，所有”L”是相同的糖果，等等。糖果盒数目介于[1,50]，每个糖果盒字符串长度限制[1,50]，字符合法取值为数字和大小写英文字符，大小写敏感。
+字符串输入需严格按照要求，不符合要求的输入或是在合法值以外的参数值，输出打印-1，-1
+
+输出：
+打印以”,”分隔的两个数字(数字前后无空格等字符)：第一个是每个孩子分到的糖果数量，第二个是剩下的糖果数量。
+如果出错，比如输入值非法，打印-1,-1
+
+Examples
+Case 1)
+input:
+2
+"FOO","BAR","BAZ","TOPCODER"
+Returns:5,7
+
+Case 2)
+input:
+2
+"X"
+Returns:0,1
+
+Case 3)
+input:
+2
+"GIVING","CANDY","TO","CHILDREN","CANNOT","BE","CHALLENGING","RIGHT"
+Returns:17,11
+
+Case 4)
+input:
+2
+"WITHOUT","IT","IM","JUST","ESPR"
+Returns:5,9
+
+Case 5)
+input:
+2
+"PHQGHUMEAYLNLFDXFIRCVSCXGGBWKFNQDUXWFNFOZVSRTKJPRE","PGGXRPNRVYSTMWCYSYYCQPEVIKEFFMZNIMKKASVWSRENZKYCXF","XTLSGYPSFADPOOEFXZBCOEJUVPVABOYGPOEYLFPBNPLJVRVIPY","AMYEHWQNQRQPMXUJJLOOVAOWUXWHMSNCBXCOKSFZKVATXDKNLY","JYHFIXJSWNKKUFNUXXZRZBMNMGQOOKETLYHNKOAUGZQRCDDIUT","EIOJWAYYZPVSCMPSAJLFVGUBFAAOVLZYLNTRKDCPWSRTESJWHD","IZCOBZCNFWLQIJTVDWVXHRCBLDVGYLWGBUSBMBORXTLHCSMPXO","HGMGNKEUFDXOTOGBGXPEYANFETCUKEPZSHKLJUGGGEKJDQZJEN","PEVQGXIEPJSRDZJAZUJL"
+Returns:203,14
+
+Case 6)
+Input:
+2
+"3456AYLNLFDXFIRCVSCXGGB&7890AYLNLFDXFIRCVSCXGGBWe55"
+
+Returns:-1,-1
+
+Q2：在C/C++中，填空、简答和选择题 （15 points）
+1)  C++函数中值的三种传递方式:      、     、      (1 points)
+
+2)            函数不能声明为虚函数。(1 point)
+
+3) C和C++中的struct主要区别是什么？  (1 point)
+
+4) New delete 与malloc free 的区别   (1 point)
+
+5) 一个类有基类、内部有一个其他类的成员对象，构造函数的执行顺序是怎样的?  (1 point)
+
+6) 在windows下，写出运行结果(提交结果时用逗号隔开)，（2 points）
+char str[] = "Hello";
+char *p = str;
+int n = 10;
+
+sizeof(str) = ( )
+sizeof(p) = ( )
+sizeof(n) = ( )
+
+void func (char str[100])
+{
+sizeof(str) = ( )
+}
+
+————
+7) 已知int a[10]={0，1，2，3，4，5，6，7，8，9}和int *p=a，则不能表示数组a中元素的式子是（  ）。(2 points)
+A．*a
+B．*p
+C．a
+D．a[p-a]
+
+8) 若用数组名作为调用函数的实参，则传递给形参的是（ ）。(2 points)
+A．数组存储首地址
+B．数组第一个元素的值
+C．数组元素的个数
+D．数组中全部元素的值
+
+9) 派生类的对象可以访问（  ）。(2 points)
+A．公有继承的基类的私有成员
+B．公有继承的基类的保护成员
+C．公有继承的基类的公有成员
+D．保护继承的基类的公有成员
+
+10. 对于C++中类（class）与结构（struct）的描述正确的为：（ ） (2 points)
+A 类中的成员默认是private的，但是可以声明为public, private和protected, 结构中定义的成员默认的都是public;
+B  结构中不允许定义成员函数，但是类中可以定义成员函数;
+C 结构实例使用malloc() 动态创建，类对象使用new操作符动态分配内存;
+D 结构和类对象动态创建时需使用new创建;
+E 结构中不可以定义虚函数，但是类中可以定义虚函数;
+F 结构不可以存在继承关系，但是类可以存在继承关系.
+
