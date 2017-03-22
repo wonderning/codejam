@@ -34,4 +34,4 @@ if __name__ == '__main__':
     if re.match(PAT, new_string) and child_count.isdigit() and int(child_count) in COUNT_LIST:
         string2count(new_string, child_count)
     else:
-        print("-1,-1")
+        exit("-1,-1")
