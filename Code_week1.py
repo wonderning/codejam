@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # Author: Derek Wang
 # This is verified in Python 3.6.
 
